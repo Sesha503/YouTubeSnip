@@ -73,11 +73,11 @@ jobs:
           curl -Ls https://astral.sh/uv/install.sh | bash
           echo "$HOME/.cargo/bin" >> $GITHUB_PATH
 
-      - name: Install dependencies
-        run: uv pip install .
-
       - name: Create virtual environment
         run: uv venv
+      
+      - name: Install dependencies
+        run: uv pip install .
 
       - name: Install dependencies with uv
         run: uv pip install -r requirements.txt || uv pip install .
