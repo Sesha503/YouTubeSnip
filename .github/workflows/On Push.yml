@@ -1,22 +1,24 @@
-name: Lint Code Base
+name: Python CI with uv
 
 on: [push, pull_request]
 
 jobs:
-  lint:
+  run:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          node-version: '14'
+          python-version: '3.13'  # or your required version
 
-      - name: Run Super Linter
-        uses: github/super-linter@v3
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          VALIDATE_PYTHON_BLACK: true
-          VALIDATE_PYTHON_FLAKE8: true
+      - name: Install uv
+        run: |
+          curl -Ls https://astral.sh/uv/install.sh | bash
+          echo "$HOME/.cargo/bin" >> $GITHUB_PATH
+
+      - name: Install dependencies with uv
+        run: uv pip install -r requirements.txt || uv pip install .
