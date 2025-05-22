@@ -76,5 +76,13 @@ jobs:
       - name: Install dependencies
         run: uv pip install .
 
+      - name: Create virtual environment
+        run: uv venv
+
+      - name: Install dependencies with uv
+        run: uv pip install -r requirements.txt || uv pip install .
+
       - name: Run script
         run: .venv/bin/python mainfile.py  # Change to your entry point
+
+      
