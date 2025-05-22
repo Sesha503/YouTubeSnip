@@ -77,4 +77,4 @@ jobs:
         run: uv pip install .
 
       - name: Run script
-        run: uv pip run python mainfile.py  # Change to your entry point
+        run: .venv/bin/python mainfile.py  # Change to your entry point
