@@ -7,7 +7,10 @@ import pytz
 def get_start_time_ist(video_id):
     url = f"https://www.youtube.com/watch?v={video_id}"
     headers = {
-        "User-Agent": "Mozilla/5.0"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                  "AppleWebKit/537.36 (KHTML, like Gecko) "
+                  "Chrome/90.0.4430.93 Safari/537.36",
+        "Accept-Language": "en-US,en;q=0.9"
     }
     response = requests.get(url, headers=headers)
     if response.status_code != 200:
