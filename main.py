@@ -11,7 +11,7 @@ def main():
     vid_id=autolive.check_live_stream(fbi)
     
     if vid_id:
-        strt_time = start.get_start_time_ist(vid_id,my_api)
+        strt_time = start.get_start_time_ist_api(vid_id,my_api)
         print(strt_time)
         fetch.read(vid_id,strt_time)
         
