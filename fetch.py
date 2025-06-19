@@ -14,7 +14,6 @@ def read(video_id,str_time):
         for c in chatdata.sync_items():
             comment = c.message.split(" ")
             if "!clip" == comment[0] and (c.author.isChatOwner or c.author.isChatModerator):
-            #if c.author.name == "Sesha":
                 clip_title = "Untitled" + str(count)
 
                 if len(comment) > 1:
@@ -23,12 +22,6 @@ def read(video_id,str_time):
                 tmstp = tc.convert_unix_ms_to_ist(c.timestamp)
                 timlist = deltatime.delta(tmstp,str_time)
                 timsec= int(timlist[0])
-                
-                #print(f"  Clip Request by {c.author.name}")
-                #print(f"  Link :https://www.youtube.com/watch?v={video_id}&t={timsec}s")
-                #print(f"  Title: {clip_title}")
-                #print(f"  Message: {c.messageEx}")
-                #print(f"  Clip Time: {tmstp}")
 
                 content=f"  Clip Request by {c.author.name} \n  Title: {clip_title} \n  Link : https://www.youtube.com/watch?v={video_id}&t={timsec}s \n  Timestamp: {timlist[1]} \n  Delayed by 45 Seconds "
 
