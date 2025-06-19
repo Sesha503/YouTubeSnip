@@ -4,6 +4,9 @@ import discord
 from datetime import datetime
 import time_converter as tc
 import deltatime
+import os
+dwh = os.getenv('DISCORD_WEBHOOK')
+
 def read(video_id,str_time):
     print(f" Listening for !clip in live chat of https://www.youtube.com/watch?v={video_id}")
     chat = pytchat.create(video_id=video_id)
@@ -25,6 +28,6 @@ def read(video_id,str_time):
 
                 content=f"  Clip Request by {c.author.name} \n  Title: {clip_title} \n  Link : https://www.youtube.com/watch?v={video_id}&t={timsec}s \n  Timestamp: {timlist[1]} \n  Delayed by 45 Seconds "
 
-                discord.send_to_discord("https://discord.com/api/webhooks/1374711828499792003/QMIRiOgTgWWVywuFPM4gHt9R1pjFS3ZsPS2hTSVNchWUqYtnJ1XZc1EMRlVnmkf5m3nA",content)
+                discord.send_to_discord(dwh,content)
                 count += 1
         time.sleep(1)
