@@ -1,7 +1,8 @@
 import fetch
 import autolive
 import start
-my_api= 'AIzaSyBOMzh5Uvp2RNhFdn1Z7Br2D2bVc6Nyvrs'
+import os
+my_api= os.getenv('API_KEY')
 
 fbi="UCvLSQGgj08vC0ws_9f-Eung"
 
