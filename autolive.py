@@ -1,6 +1,7 @@
 from googleapiclient.discovery import build
+import os
 
-api_key = "AIzaSyBOMzh5Uvp2RNhFdn1Z7Br2D2bVc6Nyvrs"
+my_api= os.getenv('API_KEY')
 youtube = build('youtube', 'v3', developerKey=api_key)
 
 def check_live_stream(chnl_id):
