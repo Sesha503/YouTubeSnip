@@ -84,5 +84,5 @@ jobs:
         env:
           API_KEY: ${{ secrets.API_KEY }}
           DISCORD_WEBHOOK: ${{ secrets.REY_DISCORD_WEBHOOK }}
-
+          CHANNEL_ID: ${{ secrets.REY_CHANNEL }}
       
