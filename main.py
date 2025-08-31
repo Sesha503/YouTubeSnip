@@ -4,12 +4,10 @@ import start
 import os
 my_api= os.getenv('API_KEY')
 
-fbi="UCvLSQGgj08vC0ws_9f-Eung"
-
 def main():
     print("Hello from stream-snip!")
     
-    vid_id=autolive.check_live_stream(fbi)
+    vid_id=autolive.check_live_stream(os.getenv('REY_CHANNEL'))
     
     if vid_id:
         strt_time = start.get_start_time_ist_api(vid_id,my_api)
