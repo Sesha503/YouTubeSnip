@@ -16,7 +16,8 @@ def read(video_id,str_time):
         chatdata = chat.get()
         for c in chatdata.sync_items():
             comment = c.message.split(" ")
-            if "!clip" == comment[0] and (c.author.isChatOwner or c.author.isChatModerator):
+            #if "!clip" == comment[0] and (c.author.isChatOwner or c.author.isChatModerator):
+                if "!clip" == comment[0].lower():
                 clip_title = "Untitled" + str(count)
 
                 if len(comment) > 1:
@@ -31,4 +32,5 @@ def read(video_id,str_time):
                 discord.send_to_discord(dwh,content)
                 count += 1
         time.sleep(1)
+
 
