@@ -1,4 +1,4 @@
-name: Run every 5 min from 7–9 PM IST
+name: Run every 2 min from 7–9 PM IST
 
 on:
   schedule:
