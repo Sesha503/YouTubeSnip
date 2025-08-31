@@ -5,7 +5,7 @@ from datetime import datetime
 import time_converter as tc
 import deltatime
 import os
-dwh = os.getenv('DISCORD_WEBHOOK')
+dwh = os.getenv('REY_DISCORD_WEBHOOK')
 
 def read(video_id,str_time):
     print(f" Listening for !clip in live chat of https://www.youtube.com/watch?v={video_id}")
@@ -31,3 +31,4 @@ def read(video_id,str_time):
                 discord.send_to_discord(dwh,content)
                 count += 1
         time.sleep(1)
+
