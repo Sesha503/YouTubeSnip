@@ -1,10 +1,22 @@
 name: Run every 2 min from 7–9 PM IST
 
 on:
+  workflow_dispatch:   # Allows manual trigger from GitHub UI
+
   schedule:
-    - cron: "30-59/2 13 * * *"   # 7:00–7:29 PM IST
-    - cron: "*/2 14 * * *"       # 7:30–8:29 PM IST
-    - cron: "0-29/2 15 * * *"    # 8:30–8:59 PM IST
+    # 7:30–7:59 PM IST → 14:00–14:29 UTC
+    - cron: "0-29/2 14 * * *"
+
+    # 8:00–8:59 PM IST → 14:30–15:29 UTC
+    - cron: "30-59/2 14 * * *"
+    - cron: "0-59/2 15 * * *"
+
+    # 9:00–9:59 PM IST → 15:30–16:29 UTC
+    - cron: "30-59/2 15 * * *"
+    - cron: "0-59/2 16 * * *"
+
+    # 10:00 PM IST → 16:30 UTC
+    - cron: "30 16 * * *"
 
 jobs:
   run-script:
