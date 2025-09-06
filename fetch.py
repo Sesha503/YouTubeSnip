@@ -28,10 +28,11 @@ def read(video_id,str_time):
                 timlist = deltatime.delta(tmstp,str_time)
                 timsec= int(timlist[0])
 
-                content=f"  Clip Request by {c.author.name} \n  Title: {clip_title} \n  Link : https://www.youtube.com/watch?v={video_id}&t={timsec}s \n  Timestamp: {timlist[1]} \n  Delayed by 45 Seconds "
+                content=f"  Clip Request by {c.author.name} \n  Title: {clip_title} \n  Link : https://www.youtube.com/watch?v={video_id}&t={timsec}s \n  Timestamp: {timlist[1]} \n  Delayed by 59 Seconds "
 
                 discord.send_to_discord(dwh,content)
         time.sleep(1)
+
 
 
 
